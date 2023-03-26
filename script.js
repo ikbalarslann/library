@@ -10,6 +10,7 @@ function Book(title, author, pages, read) {
 // eslint-disable-next-line no-unused-vars
 function showForm() {
     document.getElementById("book-form").style.display = "block";
+    document.querySelector("button").style.display = "none";
   }
 
 function addBookToLibrary(book) {
@@ -29,7 +30,7 @@ function displayBooks() {
     const book = myLibrary[i];
 
     const li = document.createElement("li");
-    li.textContent = `${book.title} by ${book.author}, ${book.pages} pages, ${book.read ? "read" : "not read"}`;
+    li.textContent = `${book.title} by ${book.author}, ${book.pages} pages, ${book.read ? "read" : "not read yet"}`;
 
     bookList.appendChild(li);
   }
@@ -59,5 +60,8 @@ document.getElementById("book-form").addEventListener("submit", (event) => {
    document.getElementById("author").value = "";
    document.getElementById("pages").value = "";
    document.getElementById("read").checked = false;
+
+   document.querySelector("button").style.display = "block";
+   
 });
 
